@@ -12,3 +12,11 @@ Cargo.lock
 
 # MSVC Windows builds of rustc generate these, which store debugging information
 *.pdb
+
+*.DS_Store
+rustume/static/*.wasm
+rustume/static/*.d.ts
+rustume/static/wasm.js
+rustume/static/package.json
+rustume/static/wasm_bg.wasm.d.ts
+rustume/static/rustume.html
