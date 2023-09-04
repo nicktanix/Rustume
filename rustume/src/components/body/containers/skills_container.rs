@@ -51,11 +51,15 @@ impl Component for SkillsContainer {
         };
 
         html! {
-            <div class="container">
+            <div class="container" id={"SkillsContainer"}>
+                <div class="page-header text-white">
+                    <h1 id="skills">{"Skills"}</h1>
+                </div>
                 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
                     { skill_cards }
                 </div>
             </div>
+
         }
     }
 }
