@@ -1,0 +1,219 @@
+{
+    "profile": {
+        "contact": {
+            "email": "john.doe@example.com",
+            "phone": "+1 123 456 7890",
+            "website": "https://example.com",
+            "location": {
+                "city": "Anytown",
+                "state": "ST",
+                "country": "US"
+            },
+            "social": {
+                "linkedin": "https://www.linkedin.com/in/johndoe",
+                "github": "https://www.github.com/u/jdoe",
+                "twitter": "https://www.twitter.com/jdoe",
+                "facebook": "https://www.facebook.com/jdoe",
+                "instagram": "https://www.instagram.com/jdoe",
+                "youtube": "https://www.youtube.com/jdoe",
+                "pinterest": "https://www.pinterest.com/jdoe",
+                "tumblr": "https://www.tumblr.com/jdoe"
+            }
+        },
+        "information": {
+            "name": "John Doe",
+            "title": "Mr.",
+            "currentJobTitle": "Software Engineer",
+            "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vita",
+            "photo": "/img/word_cloud.webp",
+            "currentTrajectory": [
+                "Searching"
+            ],
+            "preferences": {
+                "locationPreference": [
+                    "Remote"
+                ],
+                "termPreference": [
+                    "Full Time"
+                ],
+                "positionPreference": [
+                    "Software Engineer"
+                ]
+            }
+        }
+    },
+    "experience": [
+        {
+            "company": "Company 1",
+            "title": "Software Engineer",
+            "location": "Anytown, ST",
+            "startDate": "2022-07-01",
+            "endDate": "",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae",
+            "highlights": [
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae"
+            ]
+        },
+        {
+            "company": "Company 2",
+            "title": "Software Engineer",
+            "location": "Anytown, ST",
+            "startDate": "2020-06-01",
+            "endDate": "2022-07-01",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae",
+            "highlights": [
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae"
+            ]
+        },
+        {
+            "company": "Company 3",
+            "title": "Software Engineer",
+            "location": "Anytown, ST",
+            "startDate": "2019-01-01",
+            "endDate": "2020-06-01",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae",
+            "highlights": [
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae"
+            ]
+        }
+    ],
+    "education": [
+        {
+            "institution": "University 1",
+            "degree": "Bachelor of Science",
+            "fieldOfStudy": "Computer Science",
+            "location": "Anytown, ST",
+            "startDate": "2015-01-01",
+            "endDate": "2019-01-01",
+            "graduationDate": "2019-01-01",
+            "graduated": true,
+            "stillEnrolled": false,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae",
+            "highlights": [
+                "GPA: 3.5",
+                "Honors: Cum Laude",
+                "Activities: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae"
+            ]
+        }
+    ],
+    "skills": [
+        {
+            "skillType": "Programming Languages",
+            "skillItems": [
+                "JavaScript",
+                "Python",
+                "Java",
+                "C++",
+                "C#",
+                "PHP"
+            ]
+        },
+        {
+            "skillType": "Frameworks",
+            "skillItems": [
+                "React",
+                "Angular",
+                "Vue",
+                "Node.js",
+                "Express",
+                "Django",
+                "Flask",
+                "Spring",
+                "Laravel",
+                "Symfony"
+            ]
+        },
+        {
+            "skillType": "Databases",
+            "skillItems": [
+                "MySQL",
+                "PostgreSQL",
+                "MongoDB",
+                "Redis",
+                "Elasticsearch"
+            ]
+        },
+        {
+            "skillType": "Cloud",
+            "skillItems": [
+                "AWS",
+                "Azure",
+                "Google Cloud",
+                "Heroku",
+                "Digital Ocean"
+            ]
+        },
+        {
+            "skillType": "Tools",
+            "skillItems": [
+                "Git",
+                "Docker",
+                "Kubernetes",
+                "Jenkins",
+                "Travis CI",
+                "Circle CI",
+                "Jira",
+                "Confluence",
+                "Slack"
+            ]
+        },
+        {
+            "skillType": "Operating Systems",
+            "skillItems": [
+                "Linux",
+                "Windows",
+                "MacOS"
+            ]
+        }
+    ],
+    "credentials": [
+        {
+            "name": "Certification 1",
+            "organization": "Organization 1",
+            "dateAcquired": "2019-01-01",
+            "dateExpires": "2020-01-01",
+            "credentialType": "certification",
+            "credential": "https://www.credential.net/12345678",
+            "credentialId": "12345678"
+        },
+        {
+            "name": "Accreditation 1",
+            "organization": "Organization 1",
+            "dateAcquired": "2019-01-01",
+            "dateExpires": "2020-01-01",
+            "credentialType": "accreditation",
+            "credential": "https://www.credential.net/12345678",
+            "credentialId": "12345678"
+        },
+        {
+            "name": "Certification 2",
+            "organization": "Organization 2",
+            "dateAcquired": "2019-01-01",
+            "dateExpires": "2020-01-01",
+            "credentialType": "certification",
+            "credential": "https://www.credential.net/12345678",
+            "credentialId": "12345678"
+        },
+        {
+            "name": "Accreditation 2",
+            "organization": "Organization 2",
+            "dateAcquired": "2019-01-01",
+            "dateExpires": "2020-01-01",
+            "credentialType": "accreditation",
+            "credential": "https://www.credential.net/12345678",
+            "credentialId": "12345678"
+        }
+    ],
+    "summary": "A passionate and skilled web developer with over 5 years of experience in front-end and back-end web development. Proficient in HTML, CSS, JavaScript, and various web development frameworks."
+}
