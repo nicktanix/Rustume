@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Deserialize, Serialize, Clone)]
+#[derive(Debug, Deserialize, Serialize, Clone, PartialEq)]
 pub struct Location {
     pub city: Option<String>,
     pub state: Option<String>,
@@ -30,7 +30,7 @@ pub struct Contact {
     pub social: Social,
 }
 
-#[derive(Debug, Deserialize, Serialize, Clone)]
+#[derive(Debug, Deserialize, Serialize, Clone, PartialEq)]
 pub struct Preferences {
     #[serde(rename = "locationPreference")]
     pub location_preference: Option<Vec<String>>,
@@ -40,7 +40,7 @@ pub struct Preferences {
     pub position_preference: Option<Vec<String>>,
 }
 
-#[derive(Debug, Deserialize, Serialize, Clone)]
+#[derive(Debug, Deserialize, Serialize, Clone, PartialEq)]
 pub struct Information {
     pub name: Option<String>,
     pub title: Option<String>,
@@ -225,5 +225,59 @@ impl SkillItem {
     }
 }
 
+impl IntoIterator for Social {
+    type Item = (String, Option<String>);
+    type IntoIter = std::vec::IntoIter<Self::Item>;
 
+    fn into_iter(self) -> Self::IntoIter {
+        // Create a vector of key-value pairs for each field with a Some value
+        let items: Vec<Self::Item> = vec![
+            ("linkedin".to_string(), self.linkedin),
+            ("github".to_string(), self.github),
+            ("twitter".to_string(), self.twitter),
+            ("facebook".to_string(), self.facebook),
+            ("instagram".to_string(), self.instagram),
+            ("youtube".to_string(), self.youtube),
+            ("pinterest".to_string(), self.pinterest),
+            ("tumblr".to_string(), self.tumblr),
+        ];
+
+        // Filter out fields with None values and empty strings and return an iterator
+        let items_with_values: Vec<Self::Item> = items
+            .into_iter()
+            .filter(|(_, value)| match value {
+                Some(value) => !value.is_empty(),
+                None => false,
+            })
+            .collect();
+
+        items_with_values.into_iter()
+    }
+}
+
+
+impl IntoIterator for Preferences {
+    type Item = (String, Option<Vec<String>>);
+    type IntoIter = std::vec::IntoIter<Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        // Create a vector of key-value pairs for each field with a Some value
+        let items: Vec<Self::Item> = vec![
+            ("location_preference".to_string(), self.location_preference),
+            ("term_preference".to_string(), self.term_preference),
+            ("position_preference".to_string(), self.position_preference),
+        ];
+
+        // Filter out fields with None values and empty strings and return an iterator
+        let items_with_values: Vec<Self::Item> = items
+            .into_iter()
+            .filter(|(_, value)| match value {
+                Some(value) => !value.is_empty(),
+                None => false,
+            })
+            .collect();
+
+        items_with_values.into_iter()
+    }
+}
 

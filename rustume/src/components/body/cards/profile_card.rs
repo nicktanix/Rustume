@@ -1,13 +1,26 @@
 use yew::prelude::*;
+use crate::types::{Information, Location};
+use crate::components::body::lists::profile_preference_list::ProfilePreferenceList;
 
-pub struct ProfileCard {}
+
+pub struct ProfileCard {
+    props: Props,
+}
+
+#[derive(Clone, PartialEq, Properties)]
+pub struct Props {
+    pub information: Information,
+    pub location: Location
+}
 
 impl Component for ProfileCard {
     type Message = ();
-    type Properties = ();
+    type Properties = Props;
 
-    fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
-        Self {}
+    fn create(props: Self::Properties, _: ComponentLink<Self>) -> Self {
+        Self {
+            props
+        }
     }
 
     fn update(&mut self, _: Self::Message) -> ShouldRender {
@@ -19,45 +32,34 @@ impl Component for ProfileCard {
     }
 
     fn view(&self) -> Html {
+        let information = &self.props.information;
+        let preferences = &self.props.information.preferences;
+        let trajectory = &self.props.information.current_trajectory;
+
+        // macro that takes a Option<String> and returns a String
+        let binding = String::new();
+
+        macro_rules! format_str {
+            ($x:expr) => {
+                match $x {
+                    Some(s) => s.to_owned(), // Clone the String in the Some arm
+                    None => binding.clone(), // Clone the binding String in the None arm
+                }
+            };
+        }
         html! { 
             <div class="col-lg-6 mh-100" id="profileCard">
                 <div class="card mb-6" id="whoAmICard">
-                    <h3 class="card-header text-white">{"John Doe"}</h3>
+                    <h3 class="card-header text-white">{format_str!(&information.name)}</h3>
                     <div class="card-body">
-                        <h6 class="card-subtitle text-muted">{"Senior Web Developer"}</h6>
+                        <h6 class="card-subtitle text-muted">{format_str!(&information.current_job_title)}</h6>
                     </div>
-                    <img src="/img/coder.webp" class="d-block user-select-none" width="auto" height="200"
+                    <img src={format_str!(&information.photo)} class="d-block user-select-none" width="auto" height="200"
                         focusable="false" role="img" alt="..."/>
                     <div class="card-body">
-                        <p class="card-text">{"Some quick example text to build on the card title and make up the bulk of
-                            the card's
-                            content."}</p>
+                        <p class="card-text">{format_str!(&information.message)}</p>
                     </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{"Current Trajectory"}
-                            <span class="badge bg-warning rounded-pill float-end">{"Searching"}</span>
-                            <span class="badge bg-success rounded-pill float-end">{"Not Searching"}</span>
-                            <span class="badge bg-warning-subtle rounded-pill float-end text-dark">{"Open to Discuss"}
-                            </span>
-                        </li>
-                        <li class="list-group-item">{"Location Preference"}
-                            <span class="badge bg-light rounded-pill float-end">{"Remote"}</span>
-                            <span class="badge bg-light rounded-pill float-end">{"Able to relocate"}</span>
-                            <span class="badge bg-light rounded-pill float-end">{"In Office: Phoenix, AZ"}</span>
-                        </li>
-                        <li class="list-group-item">{"Term Preference"}
-                            <span class="badge bg-light rounded-pill float-end">{"Full Time"}</span>
-                            <span class="badge bg-light rounded-pill float-end">{"W2"}</span>
-                            <span class="badge bg-light rounded-pill float-end">{"C2C"}</span>
-                            <span class="badge bg-light rounded-pill float-end">{"C2H"}</span>
-
-                        </li>
-                        <li class="list-group-item">{"Position Preference"}
-                            <span class="badge bg-light rounded-pill float-end">{"Software Engineer"}</span>
-                            <span class="badge bg-light rounded-pill float-end">{"Frontend Engineer"}</span>
-                            <span class="badge bg-light rounded-pill float-end">{"Backend Engineer"}</span>
-                        </li>
-                    </ul>
+                        <ProfilePreferenceList preferences={preferences.clone()} trajectory={trajectory.clone()} />
                     <div class="card-body">
                         <a href="#" class="card-link">{"Card link"}</a>
                         <a href="#" class="card-link">{"Another link"}</a>

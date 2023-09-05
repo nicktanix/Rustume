@@ -122,7 +122,7 @@ impl Component for Index {
             let education = &resume.education;
             html! {
                  <div class="container">
-                     <ProfileContactContainer/>
+                     <ProfileContactContainer profile={profile}/>
                      <hr/>
                      <SummaryContainer/>
                      <SkillsContainer skills={skills}/>

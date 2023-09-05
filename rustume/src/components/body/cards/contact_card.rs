@@ -1,13 +1,24 @@
 use yew::prelude::*;
+use crate::types::Contact;
+use crate::components::body::lists::social_list::SocialList;
 
-pub struct ContactCard {}
+pub struct ContactCard {
+    props: Props,
+}
+
+#[derive(Properties, Clone)]
+pub struct Props {
+    pub contact: Contact,
+}
 
 impl Component for ContactCard {
     type Message = ();
-    type Properties = ();
+    type Properties = Props;
 
-    fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
-        Self {}
+    fn create(props: Self::Properties, _: ComponentLink<Self>) -> Self {
+        Self {
+            props
+        }
     }
 
     fn update(&mut self, _: Self::Message) -> ShouldRender {
@@ -19,6 +30,7 @@ impl Component for ContactCard {
     }
 
     fn view(&self) -> Html {
+        let contact = &self.props.contact;
         html! { 
             <div class="col-lg-6 mh-100" id="contactCard">
                 <div class="card lg-6 h-100">
@@ -80,13 +92,7 @@ impl Component for ContactCard {
                                 <div id="collaspeContactInfo" class="accordion-collapse collapse show"
                                     aria-labelledby="contactInfo" data-bs-parent="#accordionContact">
                                     <div class="accordion-body" style="overflow-y: scroll; max-height: 350px">
-                                        <div class="list-group list-group-flush mh-100" style="overflow-y: scroll;">
-                                            <a href="#" class="list-group-item list-group-item-action  border-info">
-                                                {"www.johndoe.com"}
-                                                <span class="badge bg-primary rounded-pill float-end"><i
-                                                        class="icon-desktop"></i></span>
-                                            </a>
-                                        </div>
+                                        <SocialList contact={contact}/>
                                     </div>
                                 </div>
                             </div>
