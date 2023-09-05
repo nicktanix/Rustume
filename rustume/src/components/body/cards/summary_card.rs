@@ -1,13 +1,23 @@
 use yew::prelude::*;
 
-pub struct SummaryCard {}
+pub struct SummaryCard {
+    props: Props,
+}
+
+
+#[derive(Clone, PartialEq, Properties)]
+pub struct Props {
+    pub summary: String,
+}
 
 impl Component for SummaryCard {
     type Message = ();
-    type Properties = ();
+    type Properties = Props;
 
-    fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
-        Self {}
+    fn create(props: Self::Properties, _: ComponentLink<Self>) -> Self {
+        Self {
+            props,
+        }
     }
 
     fn update(&mut self, _: Self::Message) -> ShouldRender {
@@ -23,10 +33,7 @@ impl Component for SummaryCard {
             <div class="card mb-4" id="summaryCard">
                 <div class="card-body">
                     <p class="card-text">
-                    {" A passionate and skilled web developer with over 5 years of experience in front-end and
-                        back-end
-                        web
-                        development. Proficient in HTML, CSS, JavaScript, and various web development frameworks."}
+                        {&self.props.summary}
                     </p>
                 </div>
             </div>

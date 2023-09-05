@@ -120,14 +120,15 @@ impl Component for Index {
             let skills = &resume.skills;
             let experience = &resume.experience;
             let education = &resume.education;
+            let summary = &resume.summary;
             html! {
                  <div class="container">
                      <ProfileContactContainer profile={profile}/>
                      <hr/>
-                     <SummaryContainer/>
+                     <SummaryContainer summary={summary}/>
                      <SkillsContainer skills={skills}/>
-                     <ExperienceContainer/>
-                     <EducationContainer/>
+                     <ExperienceContainer experience={experience}/>
+                     <EducationContainer education={education}/>
                      <hr/>
                  </div>
             }

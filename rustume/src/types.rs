@@ -59,7 +59,7 @@ pub struct Profile {
     pub information: Information,
 }
 
-#[derive(Debug, Deserialize, Serialize, Clone)]
+#[derive(Debug, Deserialize, Serialize, Clone, PartialEq)]
 pub struct Experience {
     pub company: Option<String>,
     pub title: Option<String>,
@@ -69,22 +69,27 @@ pub struct Experience {
     #[serde(rename = "endDate")]
     pub end_date: Option<String>,
     pub description: Option<String>,
-    pub highlights: Option<Vec<String>>,
+    pub highlights: Vec<String>,
 }
 
-#[derive(Debug, Deserialize, Serialize, Clone)]
+#[derive(Debug, Deserialize, Serialize, Clone, PartialEq)]
 pub struct Education {
-    pub institution: Option<String>,
-    pub degree: Option<String>,
+    pub institution: String,
+    pub degree: String,
     #[serde(rename = "fieldOfStudy")]
-    pub field_of_study: Option<String>,
-    pub location: Option<String>,
+    pub field_of_study: String,
+    pub location: String,
     #[serde(rename = "startDate")]
-    pub start_date: Option<String>,
+    pub start_date: String,
     #[serde(rename = "endDate")]
-    pub end_date: Option<String>,
-    pub description: Option<String>,
-    pub highlights: Option<Vec<String>>,
+    pub end_date: String,
+    #[serde(rename = "graduationDate")]
+    pub graduation_date: String,
+    pub graduated: bool,
+    #[serde(rename = "stillEnrolled")]
+    pub still_enrolled: bool,
+    pub description: String,
+    pub highlights: Vec<String>,
 }
 
 #[derive(Debug, Deserialize, Serialize, Clone)]
@@ -118,6 +123,7 @@ pub struct Resume {
     pub education: Option<Vec<Education>>,
     pub skills: Option<Vec<SkillItem>>,
     pub credentials: Option<Vec<Credential>>,
+    pub summary: String,
 }
 
 impl Default for Resume {
@@ -162,6 +168,7 @@ impl Default for Resume {
             education: None,
             skills: None,
             credentials: None,
+            summary: String::new(),
         }
     }
 }
@@ -280,4 +287,3 @@ impl IntoIterator for Preferences {
         items_with_values.into_iter()
     }
 }
-
